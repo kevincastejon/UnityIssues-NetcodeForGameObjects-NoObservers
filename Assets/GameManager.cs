@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public void Server()
+    {
+        NetworkManager.Singleton.StartServer();
+    }
     public void Host()
     {
         NetworkManager.Singleton.StartHost();
@@ -12,5 +16,5 @@ public class GameManager : MonoBehaviour
     public void Join()
     {
         NetworkManager.Singleton.StartClient();
-    } 
+    }
 }

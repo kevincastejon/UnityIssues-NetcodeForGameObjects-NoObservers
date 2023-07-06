@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : NetworkBehaviour
 {
+    public static int _playersCount;
+
     NetworkObject _netObject;
     private void Awake()
     {
@@ -14,14 +16,8 @@ public class Player : NetworkBehaviour
     {
         if (NetworkManager.Singleton.IsServer)
         {
-            if (NetworkManager.Singleton.LocalClient.PlayerObject == _netObject)
-            {
-                transform.position = Vector3.left;
-            }
-            else
-            { 
-                transform.position = Vector3.right;
-            }
+            transform.position = Vector3.right * _playersCount;
+            _playersCount++;
         }
     }
 }
